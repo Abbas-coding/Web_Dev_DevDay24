@@ -11,32 +11,29 @@ const CatchAsyncErrors = require('../middleware/catchAsyncErrors');
 const sendToken = require('../utils/jwtToken');
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const { isAuthenticated, isAdmin } = require('../middleware/auth');
+import {v2 as cloudinary} from "cloudinary";
 
-router.post('/create-user', upload.single("file"), async (req,res, next)=>{
+router.post('/create-user', async (req,res, next)=>{
     try{
     const { name , email, password} = req.body;
     const userEmail = await User.findOne({email});
 
     if (userEmail){
-        const filename = req.file.filename;
-        const filePath = `uploads/${filename}`
-        fs.unlink(filePath, (err)=>{
-            if(err){
-                console.log(err)
-                res.status(500).json({message: "Error deleting file"})
-            }
-        })
         return next(new ErrorHandler("User already exists", 400))
     }
+
+    const myCloud = await cloudinary.uploader.upload(avatar,{
+      folder: "avatars",
+    })
     
-    const filename = req.file.filename;
-    const fileUrl = path.join(filename);
-    console.log(fileUrl)
     const user= {
         name: name,
         email: email,
         password: password,
-        avatar : fileUrl,
+        avatar : {
+          public_id: myCloud.public_id,
+          url: myCloud.secure_url,
+        },
     }
 
     const activationToken = createActivationToken(user);

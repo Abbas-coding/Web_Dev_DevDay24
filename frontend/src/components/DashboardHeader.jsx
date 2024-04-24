@@ -22,8 +22,8 @@ const DashboardHeader = () => {
             withCredentials:true,
             })
             .then((res) => {
-            setAvatar(`${backend_url}${res.data.user?.avatar}`);
-            console.log(`${backend_url}${res.data.user?.avatar}`)
+            setAvatar(`${res.data.user?.avatar?.url}`);
+            
             })
             .catch((err) => {
                 console.log(err);
