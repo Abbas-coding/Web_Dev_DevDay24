@@ -1,13 +1,14 @@
 import React from "react";
-import { FiShoppingBag } from "react-icons/fi";
-import {GrWorkshop} from "react-icons/gr";
 import { RxDashboard } from "react-icons/rx";
 import { CiMoneyBill, CiSettings } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { HiOutlineUserGroup } from "react-icons/hi";
-import { BsHandbag } from "react-icons/bs";
-import { MdOutlineLocalOffer } from "react-icons/md";
-import { AiOutlineSetting } from "react-icons/ai";
+import { FaDiagramProject } from "react-icons/fa6";
+import { FaTasks } from "react-icons/fa";
+import { LuUserPlus } from "react-icons/lu";
+import { CiLogout } from "react-icons/ci";
+import { MdBackup } from "react-icons/md";
+import { IoIosNotifications } from "react-icons/io";
 
 const SideBar = ({ active }) => {
   return (
@@ -31,7 +32,7 @@ const SideBar = ({ active }) => {
 
       <div className="w-full flex items-center p-4">
         <Link to="/admin-orders" className="w-full flex items-center">
-          <FiShoppingBag
+          <FaDiagramProject
             size={30}
             color={`${active === 2 ? "crimson" : "#555"}`}
           />
@@ -40,14 +41,14 @@ const SideBar = ({ active }) => {
               active === 2 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
-            All Orders
+            All Projects
           </h5>
         </Link>
       </div>
 
       <div className="w-full flex items-center p-4">
         <Link to="/admin-sellers" className="w-full flex items-center">
-          <GrWorkshop
+          <FaTasks
             size={30}
             color={`${active === 3 ? "crimson" : "#555"}`}
           />
@@ -56,7 +57,7 @@ const SideBar = ({ active }) => {
               active === 3 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
-            All Sellers
+            All Tasks
           </h5>
         </Link>
       </div>
@@ -79,7 +80,7 @@ const SideBar = ({ active }) => {
 
       <div className="w-full flex items-center p-4">
         <Link to="/admin-products" className="w-full flex items-center">
-          <BsHandbag
+          <LuUserPlus
             size={30}
             color={`${active === 5 ? "crimson" : "#555"}`}
           />
@@ -88,14 +89,14 @@ const SideBar = ({ active }) => {
               active === 5 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
-            All Products
+            Create User
           </h5>
         </Link>
       </div>
 
       <div className="w-full flex items-center p-4">
         <Link to="/admin-events" className="w-full flex items-center">
-          <MdOutlineLocalOffer
+          <MdBackup
             size={30}
             color={`${active === 6 ? "crimson" : "#555"}`}
           />
@@ -104,7 +105,7 @@ const SideBar = ({ active }) => {
               active === 6 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
-            All Events
+            Backup
           </h5>
         </Link>
       </div>
@@ -116,7 +117,7 @@ const SideBar = ({ active }) => {
           to="/admin-withdraw-request"
           className="w-full flex items-center"
         >
-          <CiMoneyBill
+          <IoIosNotifications
             size={30}
             color={`${active === 7 ? "crimson" : "#555"}`}
           />
@@ -125,7 +126,7 @@ const SideBar = ({ active }) => {
               active === 7 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
-            Withdraw Request
+            Notifications
           </h5>
         </Link>
       </div>
@@ -135,7 +136,7 @@ const SideBar = ({ active }) => {
           to="/profile"
           className="w-full flex items-center"
         >
-          <AiOutlineSetting
+          <CiLogout
             size={30}
             color={`${active === 8 ? "crimson" : "#555"}`}
           />
@@ -144,7 +145,7 @@ const SideBar = ({ active }) => {
               active === 8 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
-            Settings
+            Logout
           </h5>
         </Link>
       </div>
