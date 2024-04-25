@@ -11,7 +11,7 @@ const CatchAsyncErrors = require('../middleware/catchAsyncErrors');
 const sendToken = require('../utils/jwtToken');
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const { isAuthenticated, isAdmin } = require('../middleware/auth');
-import {v2 as cloudinary} from "cloudinary";
+const cloudinary = require("cloudinary");
 
 router.post('/create-user', async (req,res, next)=>{
     try{
@@ -22,7 +22,7 @@ router.post('/create-user', async (req,res, next)=>{
         return next(new ErrorHandler("User already exists", 400))
     }
 
-    const myCloud = await cloudinary.uploader.upload(avatar,{
+    const myCloud = await cloudinary.v2.uploader.upload(avatar,{
       folder: "avatars",
     })
     

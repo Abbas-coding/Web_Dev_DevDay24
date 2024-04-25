@@ -1,6 +1,6 @@
 const app = require('./app');
 const connectDB = require('./db/db');
-import {v2 as cloudinary} from "cloudinary";
+const cloudinary = require("cloudinary");
 
 
 // handling uncaught Exception
