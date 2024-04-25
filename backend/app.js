@@ -9,7 +9,7 @@ const path = require('path');
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://web-dev-dd24.vercel.app/',
     credentials: true,
 }));
 app.use('/test', (req,res)=>{
