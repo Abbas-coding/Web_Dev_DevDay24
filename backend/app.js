@@ -8,10 +8,7 @@ const path = require('path');
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true,
-}));
+app.use(cors());
 app.use('/test', (req,res)=>{
     res.send("Hello World!");
 });
